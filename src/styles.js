@@ -4,10 +4,10 @@ export const CSS = `
 .sv-root{
   --sky:#90D5FF; --blue:#2A6BD0; --blued:#1E54AC; --ink:#141A35; --ink2:#1E2647;
   --gold:#FFCB5C; --mint:#34D2A6; --violet:#A78BFA;
-  --bg:#F8FBFF; --paper:#FFFFFF; --muted:#7C859E;
+  --bg:#EEF4FF; --paper:#FFFFFF; --muted:#7C859E;
   --line:rgba(20,26,53,.10); --line2:rgba(20,26,53,.16); --danger:#E5484D;
   font-family:'Plus Jakarta Sans',system-ui,sans-serif; color:var(--ink);
-  background:linear-gradient(180deg,#FFFFFF 0%, #F8FBFF 50%, #F0F6FF 100%); min-height:100vh; padding:0;
+  background:var(--bg); min-height:100vh; padding:0;
 }
 .sv-root *{box-sizing:border-box}
 .sv-root button{font-family:inherit; cursor:pointer}
@@ -96,10 +96,10 @@ export const CSS = `
 .swatch.sel{border-color:var(--ink)}
 .swatch-check{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:20px; text-shadow:0 1px 3px rgba(0,0,0,.35)}
 
-/* dashboard header — deep space band */
-.dash-head{display:flex; align-items:center; justify-content:space-between; padding:20px 18px 16px; background:linear-gradient(135deg,#1B2350,#141A35); color:#fff; border-radius:0 0 22px 22px; overflow:hidden; margin-bottom:16px}
+/* dashboard header — light blue gradient */
+.dash-head{display:flex; align-items:center; justify-content:space-between; padding:20px 18px 16px; background:linear-gradient(135deg,#4A90E2,#63B3ED); color:#fff; border-radius:0 0 22px 22px; overflow:hidden; margin-bottom:16px}
 .dh-left{display:flex; align-items:center}
-.hello{font-weight:700; font-size:17px; font-family:'Quicksand',sans-serif; color:#fff}
+.hello{font-weight:700; font-size:17px; font-family:'Quicksand',sans-serif; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.1)}
 .lvl-badge{display:inline-block; background:var(--gold); color:#5a3d00; font-size:11px; font-weight:700; padding:2px 9px; border-radius:8px; margin-top:3px}
 .icon-btn{border:0; background:rgba(255,255,255,.14); color:#fff; width:36px; height:36px; border-radius:10px; font-size:16px}
 .dh-right{display:flex; align-items:center}
