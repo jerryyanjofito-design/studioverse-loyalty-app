@@ -4,10 +4,10 @@ export const CSS = `
 .sv-root{
   --sky:#90D5FF; --blue:#2A6BD0; --blued:#1E54AC; --ink:#141A35; --ink2:#1E2647;
   --gold:#FFCB5C; --mint:#34D2A6; --violet:#A78BFA;
-  --bg:#EEF4FF; --paper:#FFFFFF; --muted:#7C859E;
+  --bg:#F8FBFF; --paper:#FFFFFF; --muted:#7C859E;
   --line:rgba(20,26,53,.10); --line2:rgba(20,26,53,.16); --danger:#E5484D;
   font-family:'Plus Jakarta Sans',system-ui,sans-serif; color:var(--ink);
-  background:var(--bg); min-height:100vh; padding:0;
+  background:linear-gradient(180deg,#FFFFFF 0%, #F8FBFF 50%, #F0F6FF 100%); min-height:100vh; padding:0;
 }
 .sv-root *{box-sizing:border-box}
 .sv-root button{font-family:inherit; cursor:pointer}
@@ -50,7 +50,7 @@ export const CSS = `
 .pad-x{padding:0 18px 24px}
 .center-col{display:flex; flex-direction:column; align-items:center; text-align:center}
 
-.login-bg{background:linear-gradient(180deg,#F4F9FF, #EAF2FF 60%, #E4EEFF); min-height:100vh; padding:20px}
+.login-bg{background:linear-gradient(180deg,#FFFFFF 0%, #F8FBFF 40%, #F0F6FF 100%); min-height:100vh; padding:20px}
 .login-mark{margin:14px 0 10px}
 .sv-logo{display:block; max-width:100%; height:auto}
 .login-logo{margin:26px auto 22px}
