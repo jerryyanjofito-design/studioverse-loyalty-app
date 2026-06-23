@@ -114,7 +114,7 @@ function App() {
   return (
     <div className="sv-root">
       <style>{CSS}</style>
-      <div className="stage">
+      <div className="stage full-screen">
         <CustomerApp
           cScreen={cScreen} setCScreen={setCScreen}
           phone={phone} setPhone={setPhone} pin={pin} setPin={setPin}

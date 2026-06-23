@@ -39,6 +39,8 @@ export const CSS = `
 .reset{margin-left:auto; border:1px solid #2C3760; background:transparent; color:#7e8cb5; font-size:12px; padding:6px 11px; border-radius:8px}
 
 .stage{display:flex; justify-content:center; padding:22px 14px; min-height:100vh}
+.stage.full-screen{padding:0; justify-content:flex-start; background:var(--bg)}
+.stage.full-screen>div{max-width:480px; width:100%; margin:0 auto}
 .phone{width:390px; max-width:100%; background:var(--ink); border-radius:42px; padding:12px; box-shadow:0 24px 60px rgba(0,0,0,.5); position:relative}
 .notch{position:absolute; top:18px; left:50%; transform:translateX(-50%); width:120px; height:24px; background:var(--ink); border-radius:0 0 16px 16px; z-index:5}
 .phone-screen{background:var(--bg); border-radius:32px; overflow:hidden; height:760px; overflow-y:auto; position:relative}
@@ -97,7 +99,8 @@ export const CSS = `
 .swatch-check{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:20px; text-shadow:0 1px 3px rgba(0,0,0,.35)}
 
 /* dashboard header — same gradient as referral */
-.dash-head{display:flex; align-items:center; justify-content:space-between; padding:20px 18px 16px; background:linear-gradient(135deg,#1B2350,#141A35); color:#fff; border-radius:0 0 22px 22px; overflow:hidden; margin-bottom:16px}
+.dash-head{display:flex; align-items:center; justify-content:space-between; padding:20px 18px 16px; background:linear-gradient(135deg,#1B2350,#141A35); color:#fff; border-radius:22px; overflow:hidden; margin-bottom:16px}
+.stage.full-screen .dash-head{border-radius:22px; margin:12px; margin-bottom:16px}
 .dh-left{display:flex; align-items:center}
 .hello{font-weight:700; font-size:17px; font-family:'Quicksand',sans-serif; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.1)}
 .lvl-badge{display:inline-block; background:var(--gold); color:#5a3d00; font-size:11px; font-weight:700; padding:2px 9px; border-radius:8px; margin-top:3px}
