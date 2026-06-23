@@ -96,8 +96,8 @@ export const CSS = `
 .swatch.sel{border-color:var(--ink)}
 .swatch-check{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:20px; text-shadow:0 1px 3px rgba(0,0,0,.35)}
 
-/* dashboard header — light blue gradient */
-.dash-head{display:flex; align-items:center; justify-content:space-between; padding:20px 18px 16px; background:linear-gradient(135deg,#4A90E2,#63B3ED); color:#fff; border-radius:0 0 22px 22px; overflow:hidden; margin-bottom:16px}
+/* dashboard header — same gradient as referral */
+.dash-head{display:flex; align-items:center; justify-content:space-between; padding:20px 18px 16px; background:linear-gradient(135deg,#1B2350,#141A35); color:#fff; border-radius:0 0 22px 22px; overflow:hidden; margin-bottom:16px}
 .dh-left{display:flex; align-items:center}
 .hello{font-weight:700; font-size:17px; font-family:'Quicksand',sans-serif; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.1)}
 .lvl-badge{display:inline-block; background:var(--gold); color:#5a3d00; font-size:11px; font-weight:700; padding:2px 9px; border-radius:8px; margin-top:3px}
