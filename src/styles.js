@@ -7,7 +7,7 @@ export const CSS = `
   --bg:#EEF4FF; --paper:#FFFFFF; --muted:#7C859E;
   --line:rgba(20,26,53,.10); --line2:rgba(20,26,53,.16); --danger:#E5484D;
   font-family:'Plus Jakarta Sans',system-ui,sans-serif; color:var(--ink);
-  background:linear-gradient(180deg,#1a2342,#0f162e); min-height:100vh; padding:0;
+  background:var(--bg); min-height:100vh; padding:0;
 }
 .sv-root *{box-sizing:border-box}
 .sv-root button{font-family:inherit; cursor:pointer}
@@ -38,29 +38,29 @@ export const CSS = `
 .dot-badge{background:#0C1126; color:var(--sky); font-size:10px; font-weight:700; border-radius:9px; padding:1px 6px}
 .reset{margin-left:auto; border:1px solid #2C3760; background:transparent; color:#7e8cb5; font-size:12px; padding:6px 11px; border-radius:8px}
 
-.stage{display:flex; justify-content:center; align-items:center; min-height:100vh; padding:0}
+.stage{display:flex; justify-content:center; padding:22px 14px; min-height:100vh}
 .phone{width:390px; max-width:100%; background:var(--ink); border-radius:42px; padding:12px; box-shadow:0 24px 60px rgba(0,0,0,.5); position:relative}
 .notch{position:absolute; top:18px; left:50%; transform:translateX(-50%); width:120px; height:24px; background:var(--ink); border-radius:0 0 16px 16px; z-index:5}
 .phone-screen{background:var(--bg); border-radius:32px; overflow:hidden; height:760px; overflow-y:auto; position:relative}
 .phone-screen::-webkit-scrollbar{width:0}
 .tablet{width:920px; max-width:100%; background:var(--ink); border-radius:22px; padding:12px; box-shadow:0 24px 60px rgba(0,0,0,.5)}
 
-.screen{min-height:100%}
+.screen{min-height:100%; max-width:390px; margin:0 auto; width:100%}
 .pad{padding:20px}
 .pad-x{padding:0 18px 24px}
 .center-col{display:flex; flex-direction:column; align-items:center; text-align:center}
 
-.login-bg{background:linear-gradient(180deg,#1a2342 0%, #151d38 50%, #0f162e 100%); min-height:100vh; padding:20px}
+.login-bg{background:linear-gradient(180deg,#F4F9FF, #EAF2FF 60%, #E4EEFF); min-height:100vh; padding:20px}
 .login-mark{margin:14px 0 10px}
 .sv-logo{display:block; max-width:100%; height:auto}
 .login-logo{margin:26px auto 22px}
-.tagline{font-size:11px; letter-spacing:.16em; color:#8b9acb; font-weight:600; text-transform:uppercase; margin:6px 0 20px}
+.tagline{font-size:11px; letter-spacing:.16em; color:var(--muted); font-weight:600; text-transform:uppercase; margin:6px 0 20px}
 
 .field{width:100%; text-align:left; margin-bottom:14px}
-.field label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:#b7c5e8}
+.field label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--ink)}
 .field .opt{color:var(--muted); font-weight:500}
 .lbl-light{color:#cdd7f0 !important}
-.input{width:100%; border:1.5px solid rgba(144,213,255,.2); background:rgba(26,35,66,.6); border-radius:12px; padding:13px 14px; font-size:15px; color:#fff; outline:none; transition:border-color .15s}
+.input{width:100%; border:1.5px solid var(--line2); background:var(--paper); border-radius:12px; padding:13px 14px; font-size:15px; color:var(--ink); outline:none; transition:border-color .15s}
 .input:focus{border-color:var(--blue)}
 .search{margin-bottom:14px}
 .row2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
@@ -72,11 +72,11 @@ export const CSS = `
 .btn-primary{background:var(--blue); color:#fff}
 .btn-primary:hover{filter:brightness(1.06)}
 .btn-primary:disabled{background:var(--line2); color:#fff; cursor:not-allowed; filter:none}
-.btn-ghost{background:transparent; color:#b7c5e8; border:1.5px solid rgba(144,213,255,.3)}
-.btn-ghost:hover{background:rgba(144,213,255,.1)}
+.btn-ghost{background:transparent; color:var(--ink); border:1.5px solid var(--line2)}
+.btn-ghost:hover{background:rgba(20,26,53,.04)}
 .btn-danger{background:var(--danger); color:#fff}
 .btn-danger-ghost{background:transparent; color:var(--danger); border:1.5px solid rgba(229,72,77,.4)}
-.link{background:none; border:0; color:#90D5FF; font-weight:600; font-size:13px; margin-top:10px}
+.link{background:none; border:0; color:var(--blue); font-weight:600; font-size:13px; margin-top:10px}
 
 .divider{display:flex; align-items:center; gap:10px; color:var(--muted); font-size:12px; width:100%; margin:16px 0}
 .divider:before,.divider:after{content:""; flex:1; height:1px; background:var(--line2)}
