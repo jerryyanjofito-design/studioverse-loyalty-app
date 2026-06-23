@@ -10,4 +10,9 @@ export default defineConfig({
     outDir: "dist-customer",
     emptyOutDir: true,
   },
+  server: {
+    open: true,
+  },
+  // For dev mode, use the customer HTML as main
+  root: ".",
 });
