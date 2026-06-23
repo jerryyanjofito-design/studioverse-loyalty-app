@@ -9,15 +9,6 @@ import {
 import { CustomerApp } from "./pages/CustomerApp";
 import { CSS } from "./styles";
 
-function Phone({ children }) {
-  return (
-    <div className="phone">
-      <div className="notch" />
-      <div className="phone-screen">{children}</div>
-    </div>
-  );
-}
-
 function App() {
   const [toast, setToast] = useState(null);
   const [cScreen, setCScreen] = useState("login");
@@ -124,17 +115,15 @@ function App() {
     <div className="sv-root">
       <style>{CSS}</style>
       <div className="stage">
-        <Phone>
-          <CustomerApp
-            cScreen={cScreen} setCScreen={setCScreen}
-            phone={phone} setPhone={setPhone} pin={pin} setPin={setPin}
-            onLogin={handleLogin} onRegister={handleRegister} onLogout={handleLogout} busy={authBusy}
-            member={member} progress={progress} stamps={stamps} claims={claims}
-            proofClaim={proofClaim} setProofClaim={setProofClaim}
-            onClaim={handleClaim} claimingTier={claimingTier}
-            flash={flash}
-          />
-        </Phone>
+        <CustomerApp
+          cScreen={cScreen} setCScreen={setCScreen}
+          phone={phone} setPhone={setPhone} pin={pin} setPin={setPin}
+          onLogin={handleLogin} onRegister={handleRegister} onLogout={handleLogout} busy={authBusy}
+          member={member} progress={progress} stamps={stamps} claims={claims}
+          proofClaim={proofClaim} setProofClaim={setProofClaim}
+          onClaim={handleClaim} claimingTier={claimingTier}
+          flash={flash}
+        />
       </div>
       {toast && <div key={toast.id} className={`toast ${toast.type}`}>{toast.msg}</div>}
     </div>
