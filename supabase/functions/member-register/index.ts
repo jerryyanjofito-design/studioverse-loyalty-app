@@ -86,28 +86,30 @@ serve(async (req) => {
       console.warn("Check/cleanup attempt:", e.message)
     }
 
-    // Create auth user
-    const { data: signUpData, error: signUpError } = await supabaseClient.auth.signUp({
+    // Create auth user using admin API (consistent user ID)
+    const { data: adminData, error: adminError } = await supabaseAdmin.auth.admin.createUser({
       phone: authPhone,
       password: pin,
+      email: null,
+      email_confirm: true,
     })
 
-    if (signUpError) {
-      console.error("Sign up error:", signUpError)
+    if (adminError) {
+      console.error("Admin create user error:", adminError)
       // If user already exists but we didn't catch it above, return friendly error
-      if (signUpError.message?.includes("already exists") || signUpError.code === "user_already_exists") {
+      if (adminError.message?.includes("already exists") || adminError.message?.includes("duplicate")) {
         return new Response(
           JSON.stringify({ error: "Phone number already registered" }),
           { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         )
       }
-      throw signUpError
+      throw adminError
     }
 
-    const userId = signUpData.user?.id
-    if (!userId) throw new Error("Sign up did not return a user id")
+    const userId = adminData.user?.id
+    if (!userId) throw new Error("Admin create user did not return a user id")
 
-    console.log("User created:", userId)
+    console.log("User created with admin API:", userId)
 
     // Create member row
     const { data: memberData, error: rpcError } = await supabaseClient.rpc("register_member", {
