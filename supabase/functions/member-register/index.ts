@@ -127,7 +127,7 @@ serve(async (req) => {
 
     console.log("Member created successfully")
     return new Response(
-      JSON.stringify({ data: memberData }),
+      JSON.stringify(memberData),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     )
   } catch (error) {
