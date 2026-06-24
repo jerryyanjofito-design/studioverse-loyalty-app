@@ -1,9 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
 
-const supabaseUrl = Deno.env.get("SUPABASE_URL")!
-const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
-const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!
+const supabaseUrl = Deno.env.get("PROJECT_URL")!
+const supabaseServiceKey = Deno.env.get("SERVICE_ROLE_KEY")!
+const supabaseAnonKey = Deno.env.get("ANON_KEY")!
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -22,8 +22,25 @@ serve(async (req) => {
     return new Response("ok", { headers: corsHeaders })
   }
 
+  // Check env vars
+  if (!supabaseUrl || !supabaseServiceKey || !supabaseAnonKey) {
+    console.error("Missing environment variables:", {
+      hasUrl: !!supabaseUrl,
+      hasServiceKey: !!supabaseServiceKey,
+      hasAnonKey: !!supabaseAnonKey
+    })
+    return new Response(
+      JSON.stringify({ error: "Server configuration error: missing environment variables" }),
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    )
+  }
+
   try {
-    const { phone, pin, name, birthDate, passwordHint, cardTheme, referralCode } = await req.json()
+    // Log request details
+    console.log("Headers:", Object.fromEntries(req.headers.entries()))
+    const bodyText = await req.text()
+    console.log("Raw body:", bodyText)
+    const { phone, pin, name, birthDate, passwordHint, cardTheme, referralCode } = JSON.parse(bodyText)
 
     if (!phone || !pin || !name) {
       return new Response(
@@ -33,22 +50,40 @@ serve(async (req) => {
     }
 
     const authPhone = toAuthPhone(phone)
+    console.log("Registration attempt for:", authPhone)
 
     // Use admin client for auth cleanup
     const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey)
     const supabaseClient = createClient(supabaseUrl, supabaseAnonKey)
 
-    // Cleanup any incomplete registration
+    // Check if user already exists in auth
     try {
       const { data: { users } } = await supabaseAdmin.auth.admin.listUsers()
       const existingUser = users?.find(u => u.phone === authPhone)
 
       if (existingUser) {
-        await supabaseAdmin.auth.admin.deleteUser(existingUser.id)
-        console.log("Cleaned up incomplete registration for:", phone)
+        // Check if member row exists
+        const { data: existingMember } = await supabaseClient
+          .from("members")
+          .select("id")
+          .eq("id", existingUser.id)
+          .single()
+
+        if (existingMember) {
+          // User and member both exist - phone already registered
+          console.log("Phone already registered:", phone)
+          return new Response(
+            JSON.stringify({ error: "Phone number already registered" }),
+            { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          )
+        } else {
+          // Auth user exists but no member row - incomplete registration, clean up
+          await supabaseAdmin.auth.admin.deleteUser(existingUser.id)
+          console.log("Cleaned up incomplete registration for:", phone)
+        }
       }
     } catch (e) {
-      console.warn("Cleanup attempt:", e.message)
+      console.warn("Check/cleanup attempt:", e.message)
     }
 
     // Create auth user
@@ -57,10 +92,22 @@ serve(async (req) => {
       password: pin,
     })
 
-    if (signUpError) throw signUpError
+    if (signUpError) {
+      console.error("Sign up error:", signUpError)
+      // If user already exists but we didn't catch it above, return friendly error
+      if (signUpError.message?.includes("already exists") || signUpError.code === "user_already_exists") {
+        return new Response(
+          JSON.stringify({ error: "Phone number already registered" }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        )
+      }
+      throw signUpError
+    }
 
     const userId = signUpData.user?.id
     if (!userId) throw new Error("Sign up did not return a user id")
+
+    console.log("User created:", userId)
 
     // Create member row
     const { data: memberData, error: rpcError } = await supabaseClient.rpc("register_member", {
@@ -73,15 +120,20 @@ serve(async (req) => {
       p_password_hint: passwordHint ? passwordHint.trim() : null,
     })
 
-    if (rpcError) throw rpcError
+    if (rpcError) {
+      console.error("RPC error:", rpcError)
+      throw rpcError
+    }
 
+    console.log("Member created successfully")
     return new Response(
       JSON.stringify({ data: memberData }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     )
   } catch (error) {
+    console.error("Registration error:", error)
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: error.message || "Unknown error occurred" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     )
   }

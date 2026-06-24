@@ -118,14 +118,22 @@ export const CSS = `
 .dot{aspect-ratio:1; border-radius:50%; border:2px dashed rgba(255,255,255,.6); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:rgba(255,255,255,.75)}
 .dot.filled{background:#fff; border-style:solid; border-color:#fff; color:var(--gold); font-size:18px; box-shadow:0 3px 8px rgba(0,0,0,.2)}
 .sc-foot{font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.85; font-weight:600}
-.flip{position:relative; width:100%; cursor:pointer; perspective:1500px}
+.flip{position:relative; width:100%; aspect-ratio:1643/1036; cursor:pointer; perspective:1500px}
 .flip-inner{position:relative; transition:transform .6s cubic-bezier(.4,.15,.2,1); transform-style:preserve-3d}
 .flip-inner.flipped{transform:rotateY(180deg)}
 .flip-face{backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:16px; overflow:hidden; box-shadow:0 14px 30px rgba(20,26,53,.26)}
 .flip-front{position:relative}
 .flip-back{position:absolute; inset:0; transform:rotateY(180deg)}
 .card-img,
-.card-svg{display:block; width:100%; height:auto}
+.card-svg{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.card-img{
+  width:100%;
+  height:auto;
+}
 .flip-caption{text-align:center; font-size:11.5px; color:var(--muted); margin:9px 0 2px}
 .theme-picker{display:flex; flex-direction:column; gap:10px}
 .theme-opt{position:relative; border:2.5px solid transparent; border-radius:12px; overflow:hidden; padding:0; background:none; width:100%; display:block; line-height:0}
