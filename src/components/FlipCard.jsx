@@ -4,14 +4,14 @@ import { fmtDate } from "../data/constants";
 
 /* The loyalty card — final solved architecture (see project notes):
    front face swaps the WHOLE pre-rendered image by live stamp count
-   (0-9), back face overlays per-member text (name, issued date) on
+   (0-8), back face overlays per-member text (name, issued date) on
    the static license art via SVG in a fixed viewBox coordinate system.
    Never attempt to overlay stamps dynamically — see project notes for
    why that approach was abandoned. */
 export function FlipCard({ member, liveStampCount }) {
   const [flipped, setFlipped] = useState(false);
   const t = themeById(member.card_theme);
-  const bal = Math.max(0, Math.min(9, liveStampCount ?? 0));
+  const bal = Math.max(0, Math.min(8, liveStampCount ?? 0));
   const VW = 1643, VH = 1036, FS = 45, OFF = 35;
 
   return (
