@@ -92,6 +92,7 @@ serve(async (req) => {
       password: pin,
       email: null,
       email_confirm: true,
+      phone_confirm: true,
     })
 
     if (adminError) {
