@@ -92,7 +92,7 @@ export default function App() {
       setCScreen("dashboard");
       setPhone(""); setPin("");
     } catch (e) {
-      flash(e.message?.includes("Invalid") ? "No. HP atau Password salah" : (e.message || "Gagal masuk"), "err");
+      flash(e.message?.includes("Invalid") ? "Nomor atau Password salah" : (e.message || "Gagal masuk"), "err");
     } finally {
       setAuthBusy(false);
     }
@@ -122,8 +122,8 @@ export default function App() {
       flash("Selamat datang di multiverse! 🎉", "ok");
     } catch (e) {
       console.error("Registration error:", e);
-      const msg = e.message?.includes("already registered") || e.message?.includes("duplicate") || e.message?.includes("Phone number already registered")
-        ? "No. HP sudah terdaftar"
+      const msg = e.message?.includes("already registered") || e.message?.includes("duplicate") || e.message?.includes("Phone number already registered") || e.message?.includes("Edge Function")
+        ? "Nomor sudah pernah digunakan"
         : (e.message || "Gagal mendaftar");
       flash(msg, "err");
     } finally {
