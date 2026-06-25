@@ -102,8 +102,13 @@ export default function App() {
     setAuthBusy(true);
     try {
       const newMember = await signUpMember({ phone: regPhone, pin: regPin, name, birthDate, passwordHint, cardTheme, referralCode });
-      await loadMemberData(newMember.id);
+      // Set phone and pin for auto-login, then login
+      setPhone(regPhone);
+      setPin(regPin);
+      const { user } = await signInMember({ phone: regPhone, pin: regPin });
+      await loadMemberData(user.id);
       setCScreen("dashboard");
+      setPhone(""); setPin("");
       flash("Selamat datang di multiverse! 🎉", "ok");
     } catch (e) {
       console.error("Registration error:", e);
