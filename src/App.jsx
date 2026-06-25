@@ -102,11 +102,21 @@ export default function App() {
     setAuthBusy(true);
     try {
       const newMember = await signUpMember({ phone: regPhone, pin: regPin, name, birthDate, passwordHint, cardTheme, referralCode });
-      // Set phone and pin for auto-login, then login
+      // Auto-login to establish session, using returned member data directly
       setPhone(regPhone);
       setPin(regPin);
-      const { user } = await signInMember({ phone: regPhone, pin: regPin });
-      await loadMemberData(user.id);
+      await signInMember({ phone: regPhone, pin: regPin });
+      // Use the member data returned from Edge Function instead of fetching again
+      setMember(newMember);
+      // Load additional data (progress, stamps, claims) using the established session
+      const [p, s, c] = await Promise.all([
+        fetchMemberProgress(newMember.id),
+        fetchMemberStampHistory(newMember.id),
+        fetchMemberClaims(newMember.id),
+      ]);
+      setProgress(p);
+      setStamps(s);
+      setClaims(c);
       setCScreen("dashboard");
       setPhone(""); setPin("");
       flash("Selamat datang di multiverse! 🎉", "ok");
