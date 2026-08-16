@@ -75,11 +75,11 @@ export const CSS = `
 .btn:active{transform:scale(.98)}
 .btn.full{width:100%}
 .btn.sm{font-size:13px; padding:10px 16px; border-radius:12px}
-.btn-primary{background:linear-gradient(135deg,rgba(42,107,208,.45) 0%,rgba(30,84,172,.55) 50%,rgba(42,107,208,.45) 100%); color:#4dabf7; box-shadow:0 8px 32px rgba(42,107,208,.2), inset 0 2px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.15), 0 0 0 1px rgba(255,255,255,.3) inset; border:2px solid rgba(255,255,255,.5); animation:liquidGlow 3s ease-in-out infinite alternate}
-.btn-primary:hover{background:linear-gradient(135deg,rgba(42,107,208,.55) 0%,rgba(30,84,172,.65) 50%,rgba(42,107,208,.55) 100%); color:#5bc0de; box-shadow:0 12px 40px rgba(42,107,208,.3), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -2px 0 rgba(0,0,0,.1), 0 0 0 1px rgba(255,255,255,.4) inset}
+.btn-primary{background:linear-gradient(135deg,rgba(42,107,208,.8) 0%,rgba(30,84,172,.9) 50%,rgba(42,107,208,.8) 100%); color:#fff; box-shadow:0 8px 32px rgba(42,107,208,.4), inset 0 2px 0 rgba(255,255,255,.4), inset 0 -2px 0 rgba(0,0,0,.1), 0 0 0 1px rgba(255,255,255,.2) inset; border:2px solid rgba(255,255,255,.4); animation:liquidGlow 3s ease-in-out infinite alternate}
+.btn-primary:hover{background:linear-gradient(135deg,rgba(42,107,208,.9) 0%,rgba(30,84,172,.95) 50%,rgba(42,107,208,.9) 100%); color:#fff; box-shadow:0 12px 40px rgba(42,107,208,.5), inset 0 2px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.08), 0 0 0 1px rgba(255,255,255,.3) inset}
 .btn-primary:disabled{background:rgba(20,26,53,.08); color:rgba(255,255,255,.3); cursor:not-allowed; filter:none; box-shadow:none; border:2px solid rgba(255,255,255,.1); animation:none}
-.btn-ghost{background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.08) 100%); color:#2a3560; border:2px solid rgba(255,255,255,.5); box-shadow:0 6px 20px rgba(20,26,53,.04), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -2px 0 rgba(0,0,0,.1), 0 0 0 1px rgba(255,255,255,.2) inset; animation:liquidShimmer 4s ease-in-out infinite alternate}
-.btn-ghost:hover{background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.25) 50%,rgba(255,255,255,.15) 100%); box-shadow:0 8px 24px rgba(20,26,53,.08), inset 0 2px 0 rgba(255,255,255,.7), inset 0 -2px 0 rgba(0,0,0,.08)}
+.btn-ghost{background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,rgba(200,220,255,.35) 50%,rgba(255,255,255,.25) 100%); color:#2a3560; border:2px solid rgba(255,255,255,.6); box-shadow:0 6px 20px rgba(42,107,208,.08), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -2px 0 rgba(0,0,0,.08), 0 0 0 1px rgba(255,255,255,.3) inset}
+.btn-ghost:hover{background:linear-gradient(135deg,rgba(255,255,255,.35) 0%,rgba(200,220,255,.45) 50%,rgba(255,255,255,.35) 100%); box-shadow:0 8px 24px rgba(42,107,208,.12), inset 0 2px 0 rgba(255,255,255,.7), inset 0 -2px 0 rgba(0,0,0,.06)}
 .btn-danger{background:var(--danger); color:#fff}
 .btn-danger-ghost{background:transparent; color:var(--danger); border:1.5px solid rgba(229,72,77,.4)}
 .link{background:none; border:0; color:var(--blue); font-weight:600; font-size:13px; margin-top:10px; text-shadow:0 1px 2px rgba(255,255,255,.8)}
