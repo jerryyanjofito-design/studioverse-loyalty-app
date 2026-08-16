@@ -151,6 +151,13 @@ export default function App() {
     }
   }
 
+  function handlePromoClick(promo) {
+    // For now, just show a flash message
+    // In the future, this could navigate to a promo detail page or open a modal
+    flash(`Promo: ${promo.title}`, "ok");
+    console.log("Promo clicked:", promo);
+  }
+
   /* --- cashier panel: refresh the pending-claim badge whenever the
      admin surface is active --- */
   useEffect(() => {
@@ -196,6 +203,7 @@ export default function App() {
               proofClaim={proofClaim} setProofClaim={setProofClaim}
               onClaim={handleClaim} claimingTier={claimingTier}
               flash={flash}
+              onPromoClick={handlePromoClick}
             />
           </Phone>
         ) : (

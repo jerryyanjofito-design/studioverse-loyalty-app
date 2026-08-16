@@ -52,7 +52,7 @@ export const CSS = `
 .pad-x{padding:0 18px 24px}
 .center-col{display:flex; flex-direction:column; align-items:center; text-align:center}
 
-.login-bg{background:linear-gradient(180deg,#FFFFFF 0%, #F8FBFF 40%, #F0F6FF 100%); min-height:100vh; padding:20px}
+.login-bg{background-image:url('/src/assets/bg-login.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat; min-height:100vh; padding:20px}
 .login-mark{margin:14px 0 10px}
 .sv-logo{display:block; max-width:100%; height:auto}
 .login-logo{margin:26px auto 22px}
@@ -79,6 +79,16 @@ export const CSS = `
 .btn-danger{background:var(--danger); color:#fff}
 .btn-danger-ghost{background:transparent; color:var(--danger); border:1.5px solid rgba(229,72,77,.4)}
 .link{background:none; border:0; color:var(--blue); font-weight:600; font-size:13px; margin-top:10px}
+
+/* Promotional poster section */
+.promo-section{margin-top:24px; width:100%; max-width:340px; margin-left:auto; margin-right:auto}
+.promo-poster{position:relative; width:100%; aspect-ratio:4/5; border-radius:16px; overflow:hidden; cursor:pointer; box-shadow:0 8px 24px rgba(20,26,53,.12); transition:transform .15s, box-shadow .15s; background:var(--paper); margin-bottom:12px}
+.promo-poster:hover{transform:translateY(-4px); box-shadow:0 12px 32px rgba(20,26,53,.18)}
+.promo-poster img{width:100%; height:100%; object-fit:cover}
+.promo-tag{position:absolute; top:12px; left:12px; background:rgba(20,26,53,.75); backdrop-filter:blur(8px); color:#fff; padding:6px 12px; border-radius:8px; font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase}
+.promo-title{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(20,26,53,.85)); padding:40px 16px 16px; color:#fff}
+.promo-title h3{margin:0; font-size:16px; font-weight:700; line-height:1.3}
+.promo-title p{margin:4px 0 0; font-size:13px; opacity:.9}
 
 .divider{display:flex; align-items:center; gap:10px; color:var(--muted); font-size:12px; width:100%; margin:16px 0}
 .divider:before,.divider:after{content:""; flex:1; height:1px; background:var(--line2)}

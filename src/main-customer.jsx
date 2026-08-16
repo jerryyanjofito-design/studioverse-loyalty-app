@@ -112,6 +112,11 @@ function App() {
     setCScreen("login"); setProofClaim(null);
   }
 
+  function handlePromoClick(promo) {
+    flash(`Promo: ${promo.title}`, "ok");
+    console.log("Promo clicked:", promo);
+  }
+
   async function handleClaim(tier) {
     setClaimingTier(tier);
     try {
@@ -138,6 +143,7 @@ function App() {
           proofClaim={proofClaim} setProofClaim={setProofClaim}
           onClaim={handleClaim} claimingTier={claimingTier}
           flash={flash}
+          onPromoClick={handlePromoClick}
         />
       </div>
       {toast && <div key={toast.id} className={`toast ${toast.type}`}>{toast.msg}</div>}
