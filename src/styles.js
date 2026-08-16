@@ -1,3 +1,5 @@
+import bgLoginUrl from "./assets/bg-login.png";
+
 export const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
@@ -57,7 +59,7 @@ export const CSS = `
 .center-col{display:flex; flex-direction:column; align-items:center; text-align:center}
 
 .space-bg{position:relative; overflow-x:hidden}
-.space-bg::before{content:""; position:absolute; inset:-40px; z-index:0; background-image:url('/src/assets/bg-login.png'); background-size:cover; background-position:top center; background-repeat:no-repeat; transform:translate3d(var(--tilt-x,0px), var(--tilt-y,0px), 0); transition:transform .08s linear; will-change:transform; pointer-events:none}
+.space-bg::before{content:""; position:absolute; inset:-40px; z-index:0; background-image:url('${bgLoginUrl}'); background-size:cover; background-position:top center; background-repeat:no-repeat; transform:translate3d(var(--tilt-x,0px), var(--tilt-y,0px), 0); transition:transform .08s linear; will-change:transform; pointer-events:none}
 .space-bg>*{position:relative; z-index:1}
 .login-bg{min-height:100vh; padding:20px}
 .login-mark{margin:14px 0 10px}
