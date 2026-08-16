@@ -68,24 +68,22 @@ export const CSS = `
 .search{margin-bottom:14px}
 .row2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
 
-.btn{border:0; border-radius:14px; font-weight:600; font-size:15px; padding:14px 18px; transition:transform .08s, filter .15s, box-shadow .15s; backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%)}
+.btn{border:0; border-radius:16px; font-weight:600; font-size:15px; padding:14px 18px; transition:transform .08s, filter .15s, box-shadow .15s, background .15s; backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%)}
 .btn:active{transform:scale(.98)}
 .btn.full{width:100%}
 .btn.sm{font-size:13px; padding:10px 16px; border-radius:12px}
-.btn-primary{background:linear-gradient(135deg,rgba(42,107,208,.85) 0%,rgba(30,84,172,.85) 100%); color:#fff; box-shadow:0 8px 32px rgba(42,107,208,.35), inset 0 1px 0 rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.3)}
-.btn-primary:hover{box-shadow:0 12px 40px rgba(42,107,208,.45), inset 0 1px 0 rgba(255,255,255,.3)}
-.btn-primary:disabled{background:rgba(20,26,53,.15); color:rgba(255,255,255,.5); cursor:not-allowed; filter:none; box-shadow:none; border:1px solid rgba(255,255,255,.1)}
-.btn-ghost{background:rgba(255,255,255,.2); color:#2a3560; border:1.5px solid rgba(255,255,255,.5); box-shadow:0 6px 20px rgba(20,26,53,.08), inset 0 1px 0 rgba(255,255,255,.3)}
-.btn-ghost:hover{background:rgba(255,255,255,.35); box-shadow:0 8px 24px rgba(20,26,53,.12), inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-primary{background:linear-gradient(135deg,rgba(42,107,208,.5) 0%,rgba(30,84,172,.6) 100%); color:#fff; box-shadow:0 8px 32px rgba(42,107,208,.25), inset 0 2px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.1); border:2px solid rgba(255,255,255,.4)}
+.btn-primary:hover{background:linear-gradient(135deg,rgba(42,107,208,.6) 0%,rgba(30,84,172,.7) 100%); box-shadow:0 12px 40px rgba(42,107,208,.35), inset 0 2px 0 rgba(255,255,255,.5), inset 0 -1px 0 rgba(0,0,0,.05)}
+.btn-primary:disabled{background:rgba(20,26,53,.1); color:rgba(255,255,255,.4); cursor:not-allowed; filter:none; box-shadow:none; border:2px solid rgba(255,255,255,.15)}
+.btn-ghost{background:rgba(255,255,255,.12); color:#2a3560; border:2px solid rgba(255,255,255,.4); box-shadow:0 6px 20px rgba(20,26,53,.06), inset 0 2px 0 rgba(255,255,255,.5), inset 0 -1px 0 rgba(0,0,0,.05)}
+.btn-ghost:hover{background:rgba(255,255,255,.2); box-shadow:0 8px 24px rgba(20,26,53,.1), inset 0 2px 0 rgba(255,255,255,.6)}
 .btn-danger{background:var(--danger); color:#fff}
 .btn-danger-ghost{background:transparent; color:var(--danger); border:1.5px solid rgba(229,72,77,.4)}
 .link{background:none; border:0; color:var(--blue); font-weight:600; font-size:13px; margin-top:10px; text-shadow:0 1px 2px rgba(255,255,255,.8)}
 
-/* Promotional poster section - swipeable carousel */
+/* Promotional poster section - scrollable */
 .promo-section{margin-top:24px; width:100%; max-width:320px; margin-left:auto; margin-right:auto}
-.promo-carousel{position:relative; width:100%; overflow:hidden}
-.promo-track{display:flex; gap:16px; transition:transform .3s ease-out; scroll-behavior:smooth}
-.promo-track{-webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none}
+.promo-track{display:flex; gap:16px; overflow-x:auto; overflow-y:hidden; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; padding-bottom:8px}
 .promo-track::-webkit-scrollbar{display:none}
 .promo-poster{flex:0 0 auto; position:relative; width:200px; aspect-ratio:4/5; border-radius:16px; overflow:hidden; cursor:pointer; box-shadow:0 8px 24px rgba(20,26,53,.15); transition:transform .2s, box-shadow .2s; background:var(--paper)}
 .promo-poster:hover{transform:translateY(-4px); box-shadow:0 12px 32px rgba(20,26,53,.22)}
@@ -94,15 +92,6 @@ export const CSS = `
 .promo-title{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(20,26,53,.85)); padding:32px 12px 12px; color:#fff}
 .promo-title h3{margin:0; font-size:14px; font-weight:700; line-height:1.3}
 .promo-title p{display:none}
-.promo-nav{position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.9); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.5); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s, transform .1s; z-index:2; box-shadow:0 4px 12px rgba(20,26,53,.1)}
-.promo-nav:hover{background:#fff; transform:translateY(-50%) scale(1.1)}
-.promo-nav:active{transform:translateY(-50%) scale(1.05)}
-.promo-nav.prev{left:-18px}
-.promo-nav.next{right:-18px}
-.promo-nav svg{width:18px; height:18px; stroke:var(--ink); stroke-width:2.5}
-.promo-dots{display:flex; justify-content:center; gap:8px; margin-top:12px}
-.promo-dot{width:8px; height:8px; border-radius:50%; background:rgba(20,26,53,.2); transition:background .2s, transform .2s; cursor:pointer}
-.promo-dot.active{background:var(--blue); transform:scale(1.2)}
 
 .divider{display:flex; align-items:center; gap:10px; color:rgba(20,26,53,.6); font-size:12px; width:100%; margin:16px 0; text-shadow:0 1px 2px rgba(255,255,255,.8)}
 .divider:before,.divider:after{content:""; flex:1; height:1px; background:rgba(255,255,255,.4)}
