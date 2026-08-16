@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { PROMOTIONS } from "../data/promotions";
 
 export function PromoPoster({ onPromoClick }) {
@@ -8,15 +8,7 @@ export function PromoPoster({ onPromoClick }) {
   const trackRef = useRef(null);
 
   const promotions = PROMOTIONS;
-  const itemWidth = 152; // 140px width + 12px gap
-
-  // Auto-scroll every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % promotions.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [promotions.length]);
+  const itemWidth = 216; // 200px width + 16px gap
 
   const minSwipeDistance = 50;
 
