@@ -3,19 +3,19 @@
 export const PROMOTIONS = [
   {
     id: 1,
-    title: "Price List Kamar",
-    description: "Daftar harga kamar dan paket menginap yang tersedia",
+    title: "Bundling Keychain",
+    description: "Dapatkan keychain eksklusif dengan bundling special",
     image: "/src/assets/promo-price-list.jpg",
-    tag: "PRICE LIST",
-    link: "/promo/price-list"
+    tag: "SPECIAL BUNDLE",
+    link: "/promo/keychain-bundling"
   },
   {
     id: 2,
-    title: "Bundling Keychain",
-    description: "Dapatkan keychain eksklusif dengan bundling special",
+    title: "Price List Ruangan",
+    description: "Daftar harga kamar dan paket menginap yang tersedia",
     image: "/src/assets/promo-keychain-bundling.jpg",
-    tag: "SPECIAL BUNDLE",
-    link: "/promo/keychain-bundling"
+    tag: "PRICE LIST",
+    link: "/promo/price-list"
   },
   {
     id: 3,
