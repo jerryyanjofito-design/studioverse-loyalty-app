@@ -84,17 +84,26 @@ export const CSS = `
 .btn-danger-ghost{background:transparent; color:var(--danger); border:1.5px solid rgba(229,72,77,.4)}
 .link{background:none; border:0; color:var(--blue); font-weight:600; font-size:13px; margin-top:10px; text-shadow:0 1px 2px rgba(255,255,255,.8)}
 
-/* Promotional poster section - scrollable */
-.promo-section{margin-top:24px; width:100%; max-width:320px; margin-left:auto; margin-right:auto}
-.promo-track{display:flex; gap:16px; overflow-x:auto; overflow-y:hidden; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; padding-bottom:8px}
-.promo-track::-webkit-scrollbar{display:none}
-.promo-poster{flex:0 0 auto; position:relative; width:200px; aspect-ratio:4/5; border-radius:16px; overflow:hidden; cursor:pointer; box-shadow:0 8px 24px rgba(20,26,53,.15); transition:transform .2s, box-shadow .2s; background:var(--paper)}
-.promo-poster:hover{transform:translateY(-4px); box-shadow:0 12px 32px rgba(20,26,53,.22)}
-.promo-poster img{width:100%; height:100%; object-fit:cover}
-.promo-tag{position:absolute; top:10px; left:10px; background:rgba(20,26,53,.75); backdrop-filter:blur(8px); color:#fff; padding:5px 10px; border-radius:8px; font-size:10px; font-weight:600; letter-spacing:.05em; text-transform:uppercase}
-.promo-title{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(20,26,53,.85)); padding:32px 12px 12px; color:#fff}
-.promo-title h3{margin:0; font-size:14px; font-weight:700; line-height:1.3}
+/* Promotional poster section - refined carousel */
+.promo-section{margin-top:48px; width:100%; padding:0 4px}
+.promo-header{text-align:center; margin-bottom:28px}
+.promo-header h2{font-size:17px; font-weight:700; color:#1a237e; margin:0 0 6px; text-shadow:0 1px 2px rgba(255,255,255,.9); letter-spacing:-.01em}
+.promo-header p{font-size:13px; color:#5c6bc0; margin:0; font-weight:500; text-shadow:0 1px 2px rgba(255,255,255,.8)}
+.promo-carousel{position:relative; width:100%; overflow:visible; margin:0 auto}
+.promo-track{display:flex; gap:12px; overflow-x:visible; position:relative; touch-action:pan-y; margin:0 auto; padding:0; transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.promo-track{-webkit-tap-highlight-color:transparent}
+.promo-poster{flex:0 0 auto; position:relative; width:80vw; max-width:320px; aspect-ratio:4/5; border-radius:18px; overflow:hidden; cursor:pointer; box-shadow:0 12px 40px rgba(20,26,53,.12); transition:transform .3s cubic-bezier(.25,.46,.45,.94), opacity .3s ease, box-shadow .3s ease; background:var(--paper); opacity:.5; transform:scale(.92)}
+.promo-poster.active{opacity:1; transform:scale(1); box-shadow:0 16px 48px rgba(42,107,208,.2), 0 8px 24px rgba(20,26,53,.08)}
+.promo-poster:hover:not(.active){opacity:.7; transform:scale(.95)}
+.promo-poster img{width:100%; height:100%; object-fit:cover; pointer-events:none}
+.promo-tag{position:absolute; top:12px; left:12px; background:rgba(20,26,53,.75); backdrop-filter:blur(8px); color:#fff; padding:5px 10px; border-radius:8px; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; pointer-events:none}
+.promo-title{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(20,26,53,.85)); padding:36px 14px 14px; color:#fff; pointer-events:none}
+.promo-title h3{margin:0; font-size:15px; font-weight:700; line-height:1.3}
 .promo-title p{display:none}
+.promo-dots{display:flex; justify-content:center; gap:10px; margin-top:24px; padding:0 8px}
+.promo-dot{width:8px; height:8px; border-radius:50%; background:rgba(20,26,53,.15); transition:all .3s cubic-bezier(.25,.46,.45,.94); cursor:pointer}
+.promo-dot.active{width:24px; border-radius:4px; background:var(--blue)}
+.promo-dot:hover:not(.active){background:rgba(20,26,53,.25)}
 
 .divider{display:flex; align-items:center; gap:10px; color:rgba(20,26,53,.6); font-size:12px; width:100%; margin:16px 0; text-shadow:0 1px 2px rgba(255,255,255,.8)}
 .divider:before,.divider:after{content:""; flex:1; height:1px; background:rgba(255,255,255,.4)}
