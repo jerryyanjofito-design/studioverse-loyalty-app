@@ -1,7 +1,7 @@
 import { Logo } from "../components/BrandMarks";
 import { PromoPoster } from "../components/PromoPoster";
 
-export function Login({ phone, setPhone, pin, setPin, onLogin, goRegister, goPasswordHint, busy, onPromoClick }) {
+export function Login({ phone, setPhone, pin, setPin, onLogin, goRegister, goPasswordHint, busy }) {
   return (
     <div className="screen login-bg pad center-col">
       <Logo width={220} className="login-logo" />
@@ -31,7 +31,7 @@ export function Login({ phone, setPhone, pin, setPin, onLogin, goRegister, goPas
       </button>
 
       {/* Promotional poster section */}
-      <PromoPoster onPromoClick={onPromoClick} />
+      <PromoPoster />
     </div>
   );
 }

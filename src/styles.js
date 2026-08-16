@@ -68,15 +68,18 @@ export const CSS = `
 .search{margin-bottom:14px}
 .row2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
 
-.btn{border:0; border-radius:16px; font-weight:600; font-size:15px; padding:14px 18px; transition:transform .08s, filter .15s, box-shadow .15s, background .15s; backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%)}
+.btn{border:0; border-radius:16px; font-weight:600; font-size:15px; padding:14px 18px; transition:transform .08s, filter .15s, box-shadow .15s, background .15s; backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); position:relative; overflow:hidden}
+.btn::before{content:""; position:absolute; inset:0; background:linear-gradient(135deg,transparent 0%,rgba(255,255,255,.3) 50%,transparent 100%); opacity:0; transition:opacity .3s}
+.btn:hover::before{opacity:1}
+.btn:active{transform:scale(.98)}
 .btn:active{transform:scale(.98)}
 .btn.full{width:100%}
 .btn.sm{font-size:13px; padding:10px 16px; border-radius:12px}
-.btn-primary{background:linear-gradient(135deg,rgba(42,107,208,.5) 0%,rgba(30,84,172,.6) 100%); color:#fff; box-shadow:0 8px 32px rgba(42,107,208,.25), inset 0 2px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.1); border:2px solid rgba(255,255,255,.4)}
-.btn-primary:hover{background:linear-gradient(135deg,rgba(42,107,208,.6) 0%,rgba(30,84,172,.7) 100%); box-shadow:0 12px 40px rgba(42,107,208,.35), inset 0 2px 0 rgba(255,255,255,.5), inset 0 -1px 0 rgba(0,0,0,.05)}
-.btn-primary:disabled{background:rgba(20,26,53,.1); color:rgba(255,255,255,.4); cursor:not-allowed; filter:none; box-shadow:none; border:2px solid rgba(255,255,255,.15)}
-.btn-ghost{background:rgba(255,255,255,.12); color:#2a3560; border:2px solid rgba(255,255,255,.4); box-shadow:0 6px 20px rgba(20,26,53,.06), inset 0 2px 0 rgba(255,255,255,.5), inset 0 -1px 0 rgba(0,0,0,.05)}
-.btn-ghost:hover{background:rgba(255,255,255,.2); box-shadow:0 8px 24px rgba(20,26,53,.1), inset 0 2px 0 rgba(255,255,255,.6)}
+.btn-primary{background:linear-gradient(135deg,rgba(42,107,208,.35) 0%,rgba(30,84,172,.45) 50%,rgba(42,107,208,.35) 100%); color:#fff; box-shadow:0 8px 32px rgba(42,107,208,.2), inset 0 2px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.15), 0 0 0 1px rgba(255,255,255,.3) inset; border:2px solid rgba(255,255,255,.5); animation:liquidGlow 3s ease-in-out infinite alternate}
+.btn-primary:hover{background:linear-gradient(135deg,rgba(42,107,208,.45) 0%,rgba(30,84,172,.55) 50%,rgba(42,107,208,.45) 100%); box-shadow:0 12px 40px rgba(42,107,208,.3), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -2px 0 rgba(0,0,0,.1), 0 0 0 1px rgba(255,255,255,.4) inset}
+.btn-primary:disabled{background:rgba(20,26,53,.08); color:rgba(255,255,255,.3); cursor:not-allowed; filter:none; box-shadow:none; border:2px solid rgba(255,255,255,.1); animation:none}
+.btn-ghost{background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.08) 100%); color:#2a3560; border:2px solid rgba(255,255,255,.5); box-shadow:0 6px 20px rgba(20,26,53,.04), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -2px 0 rgba(0,0,0,.1), 0 0 0 1px rgba(255,255,255,.2) inset; animation:liquidShimmer 4s ease-in-out infinite alternate}
+.btn-ghost:hover{background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.25) 50%,rgba(255,255,255,.15) 100%); box-shadow:0 8px 24px rgba(20,26,53,.08), inset 0 2px 0 rgba(255,255,255,.7), inset 0 -2px 0 rgba(0,0,0,.08)}
 .btn-danger{background:var(--danger); color:#fff}
 .btn-danger-ghost{background:transparent; color:var(--danger); border:1.5px solid rgba(229,72,77,.4)}
 .link{background:none; border:0; color:var(--blue); font-weight:600; font-size:13px; margin-top:10px; text-shadow:0 1px 2px rgba(255,255,255,.8)}
@@ -304,5 +307,40 @@ export const CSS = `
   .anav{justify-content:center}
   .stat-grid{grid-template-columns:repeat(2,1fr)}
   .bar-label{width:110px; font-size:12px}
+}
+
+/* Liquid glass animations */
+@keyframes liquidGlow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes liquidShimmer{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Promo modal styles */
+.promo-modal-overlay{position:fixed; inset:0; background:rgba(20,26,53,.6); backdrop-filter:blur(12px); z-index:100; display:flex; align-items:center; justify-content:center; padding:20px; animation:fadeIn .2s ease-out}
+.promo-modal-content{position:relative; max-width:420px; width:100%; background:rgba(255,255,255,.95); backdrop-filter:blur(24px); border-radius:20px; overflow:hidden; box-shadow:0 24px 60px rgba(20,26,53,.3); animation:slideUp .3s ease-out}
+.promo-modal-close{position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.8); backdrop-filter:blur(8px); border:2px solid rgba(255,255,255,.5); cursor:pointer; font-size:18px; font-weight:700; color:var(--ink); display:flex; align-items:center; justify-content:center; z-index:2; transition:background .15s, transform .1s; box-shadow:0 4px 12px rgba(20,26,53,.1)}
+.promo-modal-close:hover{background:#fff; transform:scale(1.1)}
+.promo-modal-close:active{transform:scale(1.05)}
+.promo-modal-image{position:relative; width:100%; aspect-ratio:4/5}
+.promo-modal-image img{width:100%; height:100%; object-fit:cover}
+.promo-modal-image .promo-tag{top:16px; left:16px; font-size:11px; padding:6px 12px}
+.promo-tag.large{font-size:11px; padding:6px 12px}
+.promo-modal-info{padding:24px}
+.promo-modal-info h2{margin:0 0 8px; font-size:20px; font-weight:700; color:var(--ink)}
+.promo-modal-info p{margin:0; font-size:15px; color:var(--muted); line-height:1.5}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes slideUp{
+  from{transform:translateY(20px); opacity:0}
+  to{transform:translateY(0); opacity:1}
 }
 `;

@@ -18,7 +18,6 @@ export function CustomerApp({
   proofClaim, setProofClaim,
   onClaim, claimingTier,
   flash,
-  onPromoClick,
 }) {
   if (proofClaim) return <ClaimProof claim={proofClaim} onClose={() => setProofClaim(null)} />;
 
@@ -29,7 +28,6 @@ export function CustomerApp({
         onLogin={onLogin} busy={busy}
         goRegister={() => { setPhone(""); setPin(""); setCScreen("register"); }}
         goPasswordHint={() => setCScreen("password-hint")}
-        onPromoClick={onPromoClick}
       />
     );
 
