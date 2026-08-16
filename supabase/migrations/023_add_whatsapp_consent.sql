@@ -17,11 +17,11 @@ DROP FUNCTION IF EXISTS public.register_member(
   p_auth_user_id uuid,
   p_phone text,
   p_name text,
-  p_card_theme text default 'classic',
-  p_referral_code text default null,
-  p_email text default null,
-  p_birth_date date default null,
-  p_password_hint text default null
+  p_card_theme text,
+  p_referral_code text,
+  p_email text,
+  p_birth_date date,
+  p_password_hint text
 );
 
 CREATE OR REPLACE FUNCTION register_member(
