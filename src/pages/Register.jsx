@@ -86,7 +86,7 @@ export function Register({ flash, onSubmit, onBack, busy }) {
   };
 
   return (
-    <div className="screen pad">
+    <div className="screen login-bg pad">
       <Topbar title="Daftar Member" onBack={onBack} />
       <div className="field">
         <label>Nama</label>
