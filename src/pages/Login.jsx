@@ -3,8 +3,8 @@ import { PromoPoster } from "../components/PromoPoster";
 
 export function Login({ phone, setPhone, pin, setPin, onLogin, goRegister, goPasswordHint, busy }) {
   return (
-    <div className="screen login-bg pad center-col">
-      <Logo width={220} className="login-logo" />
+    <div className="screen space-bg login-bg pad center-col">
+      <Logo width={260} className="login-logo" />
       <div className="field">
         <label>No. HP</label>
         <input

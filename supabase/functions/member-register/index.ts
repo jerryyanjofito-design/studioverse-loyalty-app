@@ -40,7 +40,7 @@ serve(async (req) => {
     console.log("Headers:", Object.fromEntries(req.headers.entries()))
     const bodyText = await req.text()
     console.log("Raw body:", bodyText)
-    const { phone, pin, name, birthDate, passwordHint, cardTheme, referralCode } = JSON.parse(bodyText)
+    const { phone, pin, name, birthDate, passwordHint, cardTheme, referralCode, whatsappConsent } = JSON.parse(bodyText)
 
     if (!phone || !pin || !name) {
       return new Response(
@@ -121,6 +121,7 @@ serve(async (req) => {
       p_referral_code: referralCode ? referralCode.trim() : null,
       p_birth_date: birthDate || null,
       p_password_hint: passwordHint ? passwordHint.trim() : null,
+      p_whatsapp_consent: whatsappConsent !== false,
     })
 
     if (rpcError) {

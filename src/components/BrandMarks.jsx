@@ -109,6 +109,7 @@ export function RoomGallery() {
           </div>
         ) : (
           <div className="room-card" key={r.name}>
+            {r.price && <div className="room-price">{r.price}</div>}
             <img src={r.img} alt={r.name} loading="lazy" />
             <div className="room-name">{r.name}</div>
           </div>
@@ -118,7 +119,22 @@ export function RoomGallery() {
   );
 }
 
-/* Brand logo (real Studioverse wordmark, transparent) */
+/* Brand logo (real Studioverse wordmark, transparent).
+   The PNG's alpha channel is used as a CSS mask so an animated gradient
+   shows through the exact glyph shapes — the asset itself never moves,
+   scales, or gets redrawn. `--logo-url` also powers the @supports
+   fallback in styles.js for browsers without mask-image support. */
 export function Logo({ width = 200, className = "" }) {
-  return <img src={logoImg} alt="studioverse" className={`sv-logo ${className}`.trim()} style={{ width }} />;
+  return (
+    <span
+      className={`sv-logo sv-logo-animated ${className}`.trim()}
+      role="img"
+      aria-label="studioverse — the multiverse in photobooth"
+      style={{
+        width,
+        aspectRatio: "600 / 136",
+        "--logo-url": `url(${logoImg})`,
+      }}
+    />
+  );
 }

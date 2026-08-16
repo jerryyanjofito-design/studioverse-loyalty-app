@@ -3,7 +3,7 @@ import { CARD_THEMES } from "../data/card-themes";
 import { Topbar } from "../components/Topbar";
 
 export function Register({ flash, onSubmit, onBack, busy }) {
-  const [f, setF] = useState({ name: "", phone: "", birthDate: "", ref: "", pin: "", pin2: "", card: "classic" });
+  const [f, setF] = useState({ name: "", phone: "", birthDate: "", ref: "", pin: "", pin2: "", card: "classic", whatsappConsent: true });
   const set = (k, v) => setF((p) => ({ ...p, [k]: v }));
 
   // Auto-format DD/MM/YYYY saat mengetik
@@ -82,11 +82,12 @@ export function Register({ flash, onSubmit, onBack, busy }) {
       pin: f.pin,
       cardTheme: f.card,
       referralCode: f.ref.trim() || null,
+      whatsappConsent: f.whatsappConsent,
     });
   };
 
   return (
-    <div className="screen login-bg pad">
+    <div className="screen space-bg login-bg pad">
       <Topbar title="Daftar Member" onBack={onBack} />
       <div className="field">
         <label>Nama</label>
@@ -146,6 +147,19 @@ export function Register({ flash, onSubmit, onBack, busy }) {
               <span className="theme-name">{t.name}{f.card === t.id ? " ✓" : ""}</span>
             </button>
           ))}
+        </div>
+      </div>
+      <div className="field">
+        <div className="promo-consent">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={f.whatsappConsent}
+              onChange={(e) => set("whatsappConsent", e.target.checked)}
+              className="consent-checkbox"
+            />
+            <span>Saya bersedia menerima informasi promo, diskon, event, dan penawaran khusus Studioverse melalui WhatsApp.</span>
+          </label>
         </div>
       </div>
       <button className="btn btn-primary full" onClick={submit} disabled={busy}>

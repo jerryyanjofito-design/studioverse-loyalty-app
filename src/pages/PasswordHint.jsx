@@ -30,7 +30,7 @@ export function PasswordHint({ flash, onBack, busy }) {
   };
 
   return (
-    <div className="screen login-bg pad center-col">
+    <div className="screen space-bg login-bg pad center-col">
       <Logo width={180} className="login-logo" />
 
       {!hint ? (

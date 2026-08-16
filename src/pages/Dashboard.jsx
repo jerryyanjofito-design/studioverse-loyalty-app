@@ -18,8 +18,8 @@ export function Dashboard({ member, progress, onClaim, onHistory, onLogout, clai
   const rewardRow = (rewardId) => progress?.find((p) => p.tier === rewardId);
 
   return (
-    <div className="screen">
-      <div className="dash-head starfield">
+    <div className="screen space-bg">
+      <div className="dash-head">
         <div className="dh-left">
           <div>
             <div className="hello">Halo, {member.name.split(" ")[0]}</div>
@@ -79,7 +79,7 @@ export function Dashboard({ member, progress, onClaim, onHistory, onLogout, clai
 
         <button className="btn btn-ghost full hist-btn" onClick={onHistory}>Riwayat</button>
 
-        <div className="referral starfield">
+        <div className="referral">
           <div className="ref-head">Ajak teman, dapat stamp gratis</div>
           <p>
             Teman daftar pakai kode referral kamu dan langsung dapat <b>+3 stamp</b>. Begitu mereka

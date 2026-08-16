@@ -4,6 +4,7 @@ import { PasswordHint } from "./PasswordHint";
 import { Dashboard } from "./Dashboard";
 import { History } from "./History";
 import { ClaimProof } from "./ClaimProof";
+import { useTiltBackground } from "../hooks/useTiltBackground";
 
 /**
  * Top-level customer-side screen router. All data (member, progress,
@@ -19,6 +20,8 @@ export function CustomerApp({
   onClaim, claimingTier,
   flash,
 }) {
+  useTiltBackground();
+
   if (proofClaim) return <ClaimProof claim={proofClaim} onClose={() => setProofClaim(null)} />;
 
   if (cScreen === "login")

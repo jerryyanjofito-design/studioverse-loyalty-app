@@ -98,10 +98,10 @@ export default function App() {
     }
   }
 
-  async function handleRegister({ name, phone: regPhone, birthDate, passwordHint, pin: regPin, cardTheme, referralCode }) {
+  async function handleRegister({ name, phone: regPhone, birthDate, passwordHint, pin: regPin, cardTheme, referralCode, whatsappConsent }) {
     setAuthBusy(true);
     try {
-      const newMember = await signUpMember({ phone: regPhone, pin: regPin, name, birthDate, passwordHint, cardTheme, referralCode });
+      const newMember = await signUpMember({ phone: regPhone, pin: regPin, name, birthDate, passwordHint, cardTheme, referralCode, whatsappConsent });
       // Auto-login to establish session, using returned member data directly
       setPhone(regPhone);
       setPin(regPin);
