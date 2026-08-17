@@ -5,6 +5,10 @@ export function Login({ phone, setPhone, pin, setPin, onLogin, goRegister, goPas
   return (
     <div className="screen space-bg login-bg pad center-col">
       <Logo width={260} className="login-logo" />
+
+      {/* Promotional poster section */}
+      <PromoPoster />
+
       <div className="field">
         <label>No. HP</label>
         <input
@@ -29,9 +33,6 @@ export function Login({ phone, setPhone, pin, setPin, onLogin, goRegister, goPas
       <button className="btn btn-ghost full" onClick={goRegister} disabled={busy}>
         Daftar member baru
       </button>
-
-      {/* Promotional poster section */}
-      <PromoPoster />
     </div>
   );
 }

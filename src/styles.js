@@ -1,4 +1,4 @@
-import bgLoginUrl from "./assets/bg-login.png";
+import bgLoginUrl from "./assets/bg-login.jpg";
 
 export const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
@@ -53,7 +53,7 @@ export const CSS = `
 .phone-screen::-webkit-scrollbar{width:0}
 .tablet{width:920px; max-width:100%; background:var(--ink); border-radius:22px; padding:12px; box-shadow:0 24px 60px rgba(0,0,0,.5)}
 
-.screen{min-height:100%; max-width:390px; margin:0 auto; width:100%}
+.screen{min-height:100%; max-width:480px; margin:0 auto; width:100%}
 .pad{padding:20px}
 .pad-x{padding:0 18px 24px}
 .center-col{display:flex; flex-direction:column; align-items:center; text-align:center}
