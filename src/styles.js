@@ -10,7 +10,7 @@ export const CSS = `
   --line:rgba(20,26,53,.10); --line2:rgba(20,26,53,.16); --danger:#E5484D;
   --bounce:cubic-bezier(.34,1.56,.64,1);
   font-family:'Plus Jakarta Sans',system-ui,sans-serif; color:var(--ink);
-  background:var(--bg); min-height:100vh; padding:0;
+  background:var(--bg); min-height:100vh; min-height:100dvh; padding:0;
 }
 .sv-root *{box-sizing:border-box}
 .sv-root button{font-family:inherit; cursor:pointer}
@@ -44,7 +44,7 @@ export const CSS = `
 .dot-badge{background:#0C1126; color:var(--sky); font-size:10px; font-weight:700; border-radius:9px; padding:1px 6px}
 .reset{margin-left:auto; border:1px solid #2C3760; background:transparent; color:#7e8cb5; font-size:12px; padding:6px 11px; border-radius:8px}
 
-.stage{display:flex; justify-content:center; padding:22px 14px; min-height:100vh}
+.stage{display:flex; justify-content:center; padding:22px 14px; min-height:100vh; min-height:100dvh}
 .stage.full-screen{padding:0; justify-content:flex-start; background:var(--bg)}
 .stage.full-screen>div{max-width:480px; width:100%; margin:0 auto}
 .phone{width:390px; max-width:100%; background:var(--ink); border-radius:42px; padding:12px; box-shadow:0 24px 60px rgba(0,0,0,.5); position:relative}
@@ -61,7 +61,7 @@ export const CSS = `
 .space-bg{position:relative; overflow-x:hidden}
 .space-bg::before{content:""; position:absolute; inset:-40px; z-index:0; background-image:url('${bgLoginUrl}'); background-size:cover; background-position:top center; background-repeat:no-repeat; transform:translate3d(var(--tilt-x,0px), var(--tilt-y,0px), 0); transition:transform .08s linear; will-change:transform; pointer-events:none}
 .space-bg>*{position:relative; z-index:1}
-.login-bg{min-height:100vh; padding:20px}
+.login-bg{min-height:100vh; min-height:100dvh; padding:20px 20px 140px}
 .login-mark{margin:14px 0 10px}
 .sv-logo{display:block; max-width:100%; height:auto}
 .sv-logo-animated{
