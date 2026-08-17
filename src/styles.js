@@ -90,7 +90,7 @@ export const CSS = `
 @media (prefers-reduced-motion: reduce){
   .sv-logo-animated{animation:none}
 }
-.login-logo{margin:56px auto 40px}
+.login-logo{margin:86px auto 40px}
 .tagline{font-size:11px; letter-spacing:.16em; color:var(--muted); font-weight:600; text-transform:uppercase; margin:6px 0 20px}
 
 .field{width:100%; text-align:left; margin-bottom:14px}
@@ -131,21 +131,20 @@ export const CSS = `
 .btn-danger-ghost{background:transparent; color:var(--danger); border:1.5px solid rgba(229,72,77,.4)}
 .link{background:none; border:0; color:var(--blue); font-weight:600; font-size:13px; margin-top:10px; text-shadow:0 1px 2px rgba(255,255,255,.8)}
 
-/* Promotional poster section - centered auto-scroll */
-.promo-section{margin-top:48px; width:100%; padding:0 4px 40px}
-.promo-header{text-align:center; margin-bottom:28px}
+/* Promotional poster section - side-by-side scroll */
+.promo-section{margin-top:28px; width:100%; padding:0 4px 40px}
+.promo-header{text-align:center; margin-bottom:20px}
 .promo-header h2{font-size:17px; font-weight:700; color:#1a237e; margin:0 0 6px; text-shadow:0 1px 2px rgba(255,255,255,.9); letter-spacing:-.01em}
 .promo-header p{font-size:13px; color:#5c6bc0; margin:0; font-weight:500; text-shadow:0 1px 2px rgba(255,255,255,.8)}
-.promo-carousel{position:relative; width:100%; height:450px; display:flex; align-items:flex-start; justify-content:center; overflow:visible}
-.promo-track{position:relative; width:100%; height:100%; display:flex; align-items:flex-start; justify-content:center}
-.promo-poster{position:absolute; width:80vw; max-width:320px; aspect-ratio:4/5.6; border-radius:18px; overflow:hidden; cursor:pointer; transition:all .6s cubic-bezier(.25,.46,.45,.94); opacity:0; transform:scale(.85); filter:blur(8px); pointer-events:none}
-.promo-poster.active{opacity:1; transform:scale(1); filter:blur(0); z-index:2; pointer-events:auto; box-shadow:0 16px 48px rgba(42,107,208,.2), 0 8px 24px rgba(20,26,53,.08)}
-.promo-poster.prev{opacity:.3; transform:translateX(-60%) scale(.75); filter:blur(6px)}
-.promo-poster.next{opacity:.3; transform:translateX(60%) scale(.75); filter:blur(6px)}
+.promo-carousel{display:flex; gap:12px; overflow-x:auto; padding:2px 2px 10px; margin:0 -2px; -webkit-overflow-scrolling:touch}
+.promo-carousel::-webkit-scrollbar{height:0}
+.promo-poster{position:relative; flex:none; width:150px; aspect-ratio:3/4; border-radius:16px; overflow:hidden; cursor:pointer; transition:transform .3s var(--bounce), box-shadow .3s var(--bounce); box-shadow:0 6px 16px rgba(20,26,53,.15)}
+.promo-poster:hover{transform:translateY(-3px) scale(1.03); box-shadow:0 10px 22px rgba(42,107,208,.2)}
+.promo-poster:active{transform:scale(.96); transition:transform .12s ease-out}
 .promo-poster img{width:100%; height:100%; object-fit:cover; pointer-events:none}
-.promo-tag{position:absolute; top:12px; left:12px; background:rgba(20,26,53,.75); backdrop-filter:blur(8px); color:#fff; padding:5px 10px; border-radius:8px; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; pointer-events:none}
-.promo-title{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(20,26,53,.55) 45%, rgba(20,26,53,.9)); padding:64px 14px 20px; color:#fff; pointer-events:none}
-.promo-title h3{margin:0; font-size:15px; font-weight:700; line-height:1.3}
+.promo-tag{position:absolute; top:8px; left:8px; background:rgba(20,26,53,.75); backdrop-filter:blur(8px); color:#fff; padding:4px 8px; border-radius:7px; font-size:8px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; pointer-events:none}
+.promo-title{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(20,26,53,.85)); padding:26px 10px 10px; color:#fff; pointer-events:none}
+.promo-title h3{margin:0; font-size:11.5px; font-weight:700; line-height:1.25}
 .promo-title p{display:none}
 
 .divider{display:flex; align-items:center; gap:10px; color:rgba(20,26,53,.6); font-size:12px; width:100%; margin:16px 0; text-shadow:0 1px 2px rgba(255,255,255,.8)}
