@@ -3,6 +3,9 @@ import bgLoginUrl from "./assets/bg-login.jpg";
 export const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
+html, body{margin:0; padding:0; width:100%; overflow-x:hidden}
+#root{width:100%; min-height:100vh; min-height:100dvh}
+
 .sv-root{
   --sky:#90D5FF; --blue:#2A6BD0; --blued:#1E54AC; --ink:#141A35; --ink2:#1E2647;
   --gold:#FFCB5C; --mint:#34D2A6; --violet:#A78BFA;
@@ -10,7 +13,7 @@ export const CSS = `
   --line:rgba(20,26,53,.10); --line2:rgba(20,26,53,.16); --danger:#E5484D;
   --bounce:cubic-bezier(.34,1.56,.64,1);
   font-family:'Plus Jakarta Sans',system-ui,sans-serif; color:var(--ink);
-  background:var(--bg); min-height:100vh; min-height:100dvh; padding:0;
+  background:var(--bg); min-height:100vh; min-height:100dvh; width:100%; padding:0; margin:0;
 }
 .sv-root *{box-sizing:border-box}
 .sv-root button{font-family:inherit; cursor:pointer}
